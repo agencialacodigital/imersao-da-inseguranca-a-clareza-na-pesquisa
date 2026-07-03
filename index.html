@@ -187,7 +187,9 @@ fbq('track', 'PageView');
 
   /* ── HERO ──────────────────────────────────────────────────────────── */
   #hero {
-    background: linear-gradient(160deg, var(--purple-dark) 0%, var(--purple) 55%, var(--purple-mid) 100%);
+    background:
+      linear-gradient(160deg, rgba(46,31,86,0.93) 0%, rgba(62,43,112,0.9) 45%, rgba(107,85,160,0.72) 100%),
+      url('hero-bg.jpg') center 30% / cover no-repeat;
     padding: calc(150px + var(--bar-h)) 0 70px;
     position: relative;
     overflow: hidden;
@@ -197,7 +199,7 @@ fbq('track', 'PageView');
     content: '';
     position: absolute; top: -20%; right: -10%;
     width: 480px; height: 480px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(147,166,149,0.25) 0%, rgba(147,166,149,0) 70%);
+    background: radial-gradient(circle, rgba(147,166,149,0.2) 0%, rgba(147,166,149,0) 70%);
   }
   #hero .container { position: relative; z-index: 2; max-width: 720px; }
   #hero h1 { color: var(--white); margin: 18px 0 22px; }
