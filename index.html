@@ -7,6 +7,21 @@
 <meta name="description" content="Imersão online e ao vivo nos dias 28 e 29 de julho, às 19h. Aprenda a transformar sua experiência, prática ou inquietação em um caminho de pesquisa com mais clareza sobre tema, recorte, problema, metodologia e escrita acadêmica.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '836580628845972');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=836580628845972&ev=PageView&noscript=1" /></noscript>
+<!-- End Meta Pixel Code -->
 <style>
   /* ── Reset & Base ─────────────────────────────────────────────────── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -320,6 +335,52 @@
   #sticky-cta .btn { width: 100%; padding: 14px; font-size: 0.88rem; }
 
   footer { background: var(--purple-dark); color: rgba(255,255,255,0.55); text-align: center; padding: 34px 0; font-size: 0.8rem; }
+
+  /* ── Lead modal ────────────────────────────────────────────────────── */
+  .modal-overlay {
+    display: none; position: fixed; inset: 0; z-index: 200;
+    background: rgba(46,31,86,0.6);
+    align-items: center; justify-content: center;
+    padding: 20px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-box {
+    background: var(--white); border-radius: 14px;
+    max-width: 420px; width: 100%; padding: 38px 32px 32px;
+    position: relative; box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    max-height: 90vh; overflow-y: auto;
+  }
+  .modal-close {
+    position: absolute; top: 14px; right: 16px;
+    background: none; border: none; font-size: 1.4rem; line-height: 1;
+    color: var(--text-light); cursor: pointer; padding: 4px;
+  }
+  .modal-close:hover { color: var(--purple); }
+  .modal-box h3 { font-size: 1.35rem; margin-bottom: 8px; }
+  .modal-box .modal-sub { font-size: 0.92rem; color: var(--text-mid); margin-bottom: 24px; }
+  .modal-field { margin-bottom: 16px; text-align: left; }
+  .modal-field label {
+    display: block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.03em;
+    color: var(--purple); margin-bottom: 6px; text-transform: uppercase;
+  }
+  .modal-field input {
+    width: 100%; font-family: var(--sans); font-size: 0.98rem;
+    padding: 13px 14px; border: 1px solid var(--cream-dark); border-radius: 6px;
+    background: var(--cream); color: var(--text); outline: none;
+    transition: border-color 0.2s;
+  }
+  .modal-field input:focus { border-color: var(--sage); }
+  .modal-field .field-error { display: none; font-size: 0.76rem; color: #b4453a; margin-top: 5px; }
+  .modal-field.invalid input { border-color: #b4453a; }
+  .modal-field.invalid .field-error { display: block; }
+  .modal-note { font-size: 0.74rem; color: var(--text-light); text-align: center; margin-top: 14px; }
+  .modal-success { display: none; text-align: center; padding: 10px 0; }
+  .modal-success.show { display: block; }
+  .modal-success .icon-ok {
+    width: 56px; height: 56px; border-radius: 50%; background: var(--sage-light);
+    color: var(--sage-dark); font-size: 1.6rem; display: flex; align-items: center;
+    justify-content: center; margin: 0 auto 18px;
+  }
 
   /* ── Responsive ────────────────────────────────────────────────────── */
   @media (max-width: 860px) {
@@ -722,7 +783,7 @@
       <div class="old-price">De R$97</div>
       <div class="new-price">por apenas <small>R$</small>37</div>
       <div class="price-meta">Participação online e ao vivo · 28 e 29 de julho · às 19h</div>
-      <a href="https://pay.hotmart.com/SEU-LINK-AQUI" class="btn btn--primary btn--block">QUERO GARANTIR MINHA VAGA AGORA</a>
+      <button type="button" class="btn btn--primary btn--block js-buy-btn">QUERO GARANTIR MINHA VAGA AGORA</button>
       <span class="btn-sub">Pagamento único · Acesso imediato à confirmação</span>
     </div>
   </div>
@@ -762,7 +823,7 @@
       </ul>
       <p class="center" style="margin-top: 26px; font-size:0.9rem;">Tudo isso por apenas:</p>
       <p class="center" style="font-family: var(--serif); font-size: 2.4rem; color: var(--purple); margin: 6px 0 22px;">R$37</p>
-      <a href="https://pay.hotmart.com/SEU-LINK-AQUI" class="btn btn--purple btn--block">GARANTIR MINHA INSCRIÇÃO POR R$37</a>
+      <button type="button" class="btn btn--purple btn--block js-buy-btn">GARANTIR MINHA INSCRIÇÃO POR R$37</button>
     </div>
   </div>
 </section>
@@ -819,7 +880,7 @@
     <p style="color: rgba(255,255,255,0.82); margin-top: 16px;">A questão não é se você é capaz.<br><strong style="color:var(--sage);">A questão é aprender a organizar o caminho.</strong></p>
     <p style="color: rgba(255,255,255,0.82); margin-top: 16px;">Participe da Imersão Da Insegurança à Clareza na Pesquisa e dê o primeiro passo para transformar o que você já traz em linguagem acadêmica.</p>
     <div class="btn-wrap">
-      <a href="https://pay.hotmart.com/SEU-LINK-AQUI" class="btn btn--primary">QUERO PARTICIPAR DA IMERSÃO</a>
+      <button type="button" class="btn btn--primary js-buy-btn">QUERO PARTICIPAR DA IMERSÃO</button>
     </div>
     <p class="final-line">28 e 29 de julho · 19h · Online e ao vivo · R$37</p>
   </div>
@@ -832,6 +893,44 @@
 
 <div id="sticky-cta">
   <a href="#oferta" class="btn btn--primary">QUERO GARANTIR MINHA VAGA — R$37</a>
+</div>
+
+<!-- ═══════════════════════ MODAL DE INSCRIÇÃO ═══════════════════════ -->
+<div id="lead-modal" class="modal-overlay">
+  <div class="modal-box">
+    <button type="button" class="modal-close" id="modal-close-btn" aria-label="Fechar">×</button>
+
+    <div id="modal-form-wrap">
+      <h3>Garanta sua vaga</h3>
+      <p class="modal-sub">Preencha seus dados pra gente liberar seu acesso à Imersão por R$37.</p>
+
+      <form id="lead-form" novalidate>
+        <div class="modal-field" id="field-name">
+          <label for="lead-name">Nome completo</label>
+          <input type="text" id="lead-name" name="name" autocomplete="name" required>
+          <span class="field-error">Digite seu nome completo.</span>
+        </div>
+        <div class="modal-field" id="field-email">
+          <label for="lead-email">E-mail</label>
+          <input type="email" id="lead-email" name="email" autocomplete="email" required>
+          <span class="field-error">Digite um e-mail válido.</span>
+        </div>
+        <div class="modal-field" id="field-phone">
+          <label for="lead-phone">Telefone / WhatsApp</label>
+          <input type="tel" id="lead-phone" name="phone" autocomplete="tel" placeholder="(11) 91234-5678" required>
+          <span class="field-error">Digite um telefone válido com DDD.</span>
+        </div>
+        <button type="submit" class="btn btn--primary btn--block">QUERO COMPRAR</button>
+        <p class="modal-note">Ao continuar, você será direcionada ao checkout seguro para concluir o pagamento de R$37.</p>
+      </form>
+    </div>
+
+    <div id="modal-success" class="modal-success">
+      <div class="icon-ok">✓</div>
+      <h3>Tudo certo!</h3>
+      <p class="modal-sub">Estamos te redirecionando para o checkout seguro pra concluir sua inscrição...</p>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -849,6 +948,124 @@
         a.style.maxHeight = a.scrollHeight + 'px';
       }
     });
+  });
+</script>
+
+<script>
+  var CHECKOUT_URL = 'https://pay.hotmart.com/SEU-LINK-AQUI';
+
+  var modal = document.getElementById('lead-modal');
+  var formWrap = document.getElementById('modal-form-wrap');
+  var successWrap = document.getElementById('modal-success');
+  var form = document.getElementById('lead-form');
+  var closeBtn = document.getElementById('modal-close-btn');
+  var phoneInput = document.getElementById('lead-phone');
+
+  function openModal() {
+    form.reset();
+    formWrap.style.display = 'block';
+    successWrap.classList.remove('show');
+    ['field-name','field-email','field-phone'].forEach(function(id){
+      document.getElementById(id).classList.remove('invalid');
+    });
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.js-buy-btn').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      openModal();
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', function(e) {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+  });
+
+  function maskPhone(value) {
+    var digits = value.replace(/\D/g, '').slice(0, 11);
+    var out = '';
+    if (digits.length > 0) out += '(' + digits.substring(0, 2);
+    if (digits.length >= 2) out += ') ';
+    if (digits.length > 2) {
+      if (digits.length <= 10) {
+        out += digits.substring(2, 6);
+        if (digits.length > 6) out += '-' + digits.substring(6, 10);
+      } else {
+        out += digits.substring(2, 7);
+        if (digits.length > 7) out += '-' + digits.substring(7, 11);
+      }
+    }
+    return out;
+  }
+
+  phoneInput.addEventListener('input', function(e) {
+    e.target.value = maskPhone(e.target.value);
+  });
+
+  function isValidEmail(value) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  }
+
+  function isValidPhone(value) {
+    return value.replace(/\D/g, '').length >= 10;
+  }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    var nameEl = document.getElementById('lead-name');
+    var emailEl = document.getElementById('lead-email');
+    var phoneEl = document.getElementById('lead-phone');
+
+    var nameOk = nameEl.value.trim().length >= 3;
+    var emailOk = isValidEmail(emailEl.value.trim());
+    var phoneOk = isValidPhone(phoneEl.value);
+
+    document.getElementById('field-name').classList.toggle('invalid', !nameOk);
+    document.getElementById('field-email').classList.toggle('invalid', !emailOk);
+    document.getElementById('field-phone').classList.toggle('invalid', !phoneOk);
+
+    if (!nameOk || !emailOk || !phoneOk) return;
+
+    var name = nameEl.value.trim();
+    var email = emailEl.value.trim();
+    var phoneDigits = phoneEl.value.replace(/\D/g, '');
+
+    if (typeof fbq === 'function') {
+      fbq('init', '836580628845972', {
+        em: email,
+        ph: phoneDigits,
+        fn: name.split(' ')[0]
+      });
+      fbq('track', 'Lead', {
+        content_name: 'Imersão Da Insegurança à Clareza na Pesquisa',
+        value: 37,
+        currency: 'BRL'
+      });
+    }
+
+    formWrap.style.display = 'none';
+    successWrap.classList.add('show');
+
+    setTimeout(function() {
+      var url = CHECKOUT_URL
+        + (CHECKOUT_URL.indexOf('?') > -1 ? '&' : '?')
+        + 'name=' + encodeURIComponent(name)
+        + '&email=' + encodeURIComponent(email)
+        + '&phone=' + encodeURIComponent(phoneDigits);
+      window.location.href = url;
+    }, 1400);
   });
 </script>
 
