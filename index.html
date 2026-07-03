@@ -271,8 +271,9 @@
     background: var(--purple-light);
     display: flex; align-items: center; justify-content: center;
     box-shadow: 0 10px 34px rgba(62,43,112,0.15);
+    overflow: hidden;
   }
-  .about-photo .logo-mark { width: 100px; height: auto; }
+  .about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
 
   /* ── Oferta / pricing ──────────────────────────────────────────────── */
   .price-box {
@@ -667,7 +668,7 @@
   <div class="container--wide">
     <div class="about-grid">
       <div class="about-photo">
-        <img class="logo-mark" src="logo-icon-melissa-masoni.png" alt="Melissa Masoni">
+        <img src="foto-melissa.jpg" alt="Melissa Masoni">
       </div>
       <div>
         <span class="eyebrow">Quem conduz a imersão</span>
