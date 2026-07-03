@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imersão Da Insegurança à Clareza na Pesquisa — Melissa Masoni</title>
+<meta name="description" content="Imersão online e ao vivo nos dias 28 e 29 de julho, às 19h. Aprenda a transformar sua experiência, prática ou inquietação em um caminho de pesquisa com mais clareza sobre tema, recorte, problema, metodologia e escrita acadêmica.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ── Reset & Base ─────────────────────────────────────────────────── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --purple:       #3e2b70;
+    --purple-dark:  #2e1f56;
+    --purple-light: #f0edf8;
+    --purple-mid:   #6b55a0;
+    --sage:         #93a695;
+    --sage-light:   #e8ede9;
+    --sage-dark:    #6b7d6d;
+    --cream:        #fcfaf6;
+    --cream-dark:   #f4f0e8;
+    --white:        #ffffff;
+    --text:         #2a2a2a;
+    --text-mid:     #555555;
+    --text-light:   #888888;
+    --serif:        'Playfair Display', Georgia, serif;
+    --sans:         'Inter', system-ui, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  img { max-width: 100%; display: block; }
+
+  /* ── Typography ────────────────────────────────────────────────────── */
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--sage);
+  }
+  .eyebrow--light { color: var(--sage-light); }
+  h1, h2, h3 { font-family: var(--serif); line-height: 1.2; color: var(--purple); }
+  h1 { font-size: clamp(2rem, 5vw, 3.1rem); font-weight: 700; }
+  h2 { font-size: clamp(1.7rem, 3.6vw, 2.4rem); font-weight: 700; }
+  h3 { font-size: 1.3rem; font-weight: 700; }
+  p { font-family: var(--sans); color: var(--text-mid); font-size: 1.03rem; line-height: 1.8; }
+  .lead { font-size: 1.18rem; color: var(--text); }
+  strong { color: var(--purple); font-weight: 600; }
+  em { font-style: italic; }
+
+  /* ── Layout helpers ────────────────────────────────────────────────── */
+  .container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+  .container--wide { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 80px 0; }
+  .center { text-align: center; }
+  .section-head { text-align: center; max-width: 640px; margin: 0 auto 48px; }
+  .bg-purple { background: var(--purple); color: var(--white); }
+  .bg-purple h1, .bg-purple h2, .bg-purple h3 { color: var(--white); }
+  .bg-purple p { color: rgba(255,255,255,0.82); }
+  .bg-sage-light { background: var(--sage-light); }
+  .bg-cream-dark { background: var(--cream-dark); }
+  .bg-white { background: var(--white); }
+
+  /* ── Buttons ───────────────────────────────────────────────────────── */
+  .btn {
+    display: inline-block;
+    font-family: var(--sans);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.03em;
+    padding: 18px 36px;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn--primary {
+    background: var(--sage);
+    color: var(--white);
+    box-shadow: 0 4px 20px rgba(147,166,149,0.4);
+  }
+  .btn--primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(147,166,149,0.5); }
+  .btn--purple {
+    background: var(--purple);
+    color: var(--white);
+    box-shadow: 0 4px 20px rgba(62,43,112,0.35);
+  }
+  .btn--purple:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(62,43,112,0.45); }
+  .btn--block { display: block; width: 100%; text-align: center; }
+  .btn-wrap { text-align: center; margin-top: 36px; }
+  .btn-sub { display: block; font-size: 0.78rem; color: var(--sage-dark); margin-top: 12px; letter-spacing: 0.03em; }
+  .bg-purple .btn-sub { color: rgba(255,255,255,0.6); }
+
+  /* ── Divider ───────────────────────────────────────────────────────── */
+  .divider {
+    width: 48px; height: 3px;
+    background: var(--sage);
+    margin: 18px auto;
+    border-radius: 2px;
+  }
+
+  /* ── NAV ───────────────────────────────────────────────────────────── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(62,43,112,0.97);
+    backdrop-filter: blur(8px);
+    padding: 14px 0;
+  }
+  .nav-inner {
+    max-width: 1060px; margin: 0 auto; padding: 0 24px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .nav-brand {
+    font-family: var(--serif); font-size: 1.05rem; font-weight: 700;
+    color: var(--white); text-decoration: none; letter-spacing: 0.01em;
+  }
+  .nav-brand span { color: var(--sage); }
+  .nav-cta {
+    font-family: var(--sans); font-size: 0.78rem; font-weight: 600;
+    color: var(--white); background: var(--sage);
+    padding: 9px 20px; border-radius: 4px; text-decoration: none;
+    transition: background 0.2s; white-space: nowrap;
+  }
+  .nav-cta:hover { background: var(--sage-dark); }
+
+  /* ── HERO ──────────────────────────────────────────────────────────── */
+  #hero {
+    background: linear-gradient(160deg, var(--purple-dark) 0%, var(--purple) 55%, var(--purple-mid) 100%);
+    padding: 150px 0 70px;
+    position: relative;
+    overflow: hidden;
+  }
+  #hero::before {
+    content: '';
+    position: absolute; top: -20%; right: -10%;
+    width: 480px; height: 480px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(147,166,149,0.25) 0%, rgba(147,166,149,0) 70%);
+  }
+  #hero .container { position: relative; z-index: 2; max-width: 720px; }
+  #hero h1 { color: var(--white); margin: 18px 0 22px; }
+  #hero .lead { color: rgba(255,255,255,0.85); max-width: 620px; margin: 0 auto 34px; }
+  #hero .eyebrow { color: var(--sage); }
+
+  .date-card {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(147,166,149,0.35);
+    border-radius: 10px;
+    padding: 30px 28px;
+    max-width: 480px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .date-card .date-line {
+    font-family: var(--sans); font-weight: 600; font-size: 0.95rem;
+    color: var(--white); letter-spacing: 0.02em; margin-bottom: 6px;
+  }
+  .date-card .price-line {
+    font-family: var(--serif); font-size: 1.4rem; color: var(--sage);
+    margin-bottom: 20px;
+  }
+  .date-card .price-line b { font-size: 1.7rem; }
+
+  /* ── Story / opening ───────────────────────────────────────────────── */
+  #abertura p { font-size: 1.08rem; }
+  #abertura .highlight {
+    font-family: var(--serif); font-style: italic; color: var(--purple);
+    font-size: 1.3rem; margin: 30px 0; line-height: 1.5;
+    border-left: 3px solid var(--sage); padding-left: 20px;
+  }
+  #abertura .quote-line { font-size: 1.5rem; font-style: italic; font-family: var(--serif); color: var(--purple); margin: 10px 0; }
+
+  /* ── Checklist / identification ───────────────────────────────────── */
+  .check-list { list-style: none; margin: 0 auto; max-width: 660px; }
+  .check-list li {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 16px 0; border-bottom: 1px solid var(--sage-light);
+    font-size: 1.03rem; color: var(--text);
+  }
+  .check-list li:last-child { border-bottom: none; }
+  .check-list .icon {
+    flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+    background: var(--sage); color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem; margin-top: 2px;
+  }
+  .cross-list .icon { background: var(--purple-mid); }
+
+  /* ── Cards grid: learnings ────────────────────────────────────────── */
+  .card-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .card {
+    background: var(--white); border-radius: 10px; padding: 30px 26px;
+    border: 1px solid var(--cream-dark);
+    box-shadow: 0 4px 18px rgba(62,43,112,0.05);
+  }
+  .card .num {
+    font-family: var(--serif); font-size: 1.6rem; color: var(--sage);
+    display: block; margin-bottom: 10px;
+  }
+  .card h3 { font-size: 1.12rem; margin-bottom: 10px; }
+  .card p { font-size: 0.95rem; }
+
+  /* ── CALMA map ─────────────────────────────────────────────────────── */
+  .calma-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .calma-item {
+    background: var(--white); border-radius: 10px; padding: 26px 16px;
+    text-align: center; border-top: 4px solid var(--sage);
+  }
+  .calma-item .letter {
+    font-family: var(--serif); font-size: 2.2rem; color: var(--purple);
+    display: block; line-height: 1;
+  }
+  .calma-item h3 { font-size: 1rem; margin: 10px 0 8px; }
+  .calma-item p { font-size: 0.86rem; line-height: 1.5; }
+
+  /* ── Programação timeline ─────────────────────────────────────────── */
+  .timeline { display: grid; gap: 26px; }
+  .day-card {
+    background: var(--white); border-radius: 10px; padding: 32px;
+    display: grid; grid-template-columns: 130px 1fr; gap: 26px;
+    align-items: start; border: 1px solid var(--cream-dark);
+  }
+  .day-card .day-badge {
+    background: var(--purple); color: var(--white); border-radius: 8px;
+    padding: 16px 10px; text-align: center;
+  }
+  .day-badge .d-num { font-family: var(--serif); font-size: 1.8rem; display: block; }
+  .day-badge .d-label { font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); }
+  .day-badge .d-time { font-size: 0.78rem; margin-top: 6px; color: rgba(255,255,255,0.7); }
+
+  /* ── Para quem é / não é ───────────────────────────────────────────── */
+  .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .compare-card { border-radius: 10px; padding: 30px 28px; }
+  .compare-card.yes { background: var(--sage-light); }
+  .compare-card.no { background: var(--purple-light); }
+  .compare-card h3 { margin-bottom: 18px; }
+  .compare-card ul { list-style: none; }
+  .compare-card li {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 10px 0; font-size: 0.96rem; color: var(--text);
+  }
+  .compare-card .mark { flex-shrink: 0; font-weight: 700; margin-top: 2px; }
+  .compare-card.yes .mark { color: var(--sage-dark); }
+  .compare-card.no .mark { color: var(--purple-mid); }
+
+  /* ── Antes / Depois ────────────────────────────────────────────────── */
+  .transform-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+  .transform-col h3 { margin-bottom: 20px; }
+  .transform-col.before h3 { color: var(--text-light); }
+  .transform-col ul { list-style: none; }
+  .transform-col li {
+    padding: 12px 0; border-bottom: 1px solid var(--cream-dark);
+    font-size: 0.95rem; font-style: italic; color: var(--text-mid);
+  }
+  .transform-col.after li { font-style: normal; color: var(--text); }
+
+  /* ── Sobre Melissa ─────────────────────────────────────────────────── */
+  .about-grid { display: grid; grid-template-columns: 220px 1fr; gap: 44px; align-items: center; }
+  .about-photo {
+    width: 220px; height: 220px; border-radius: 50%;
+    background: linear-gradient(160deg, var(--sage) 0%, var(--purple-mid) 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-size: 3.2rem; color: var(--white);
+    box-shadow: 0 10px 34px rgba(62,43,112,0.25);
+  }
+
+  /* ── Oferta / pricing ──────────────────────────────────────────────── */
+  .price-box {
+    background: var(--white); border-radius: 14px; padding: 46px 40px;
+    text-align: center; max-width: 480px; margin: 0 auto;
+    box-shadow: 0 10px 40px rgba(62,43,112,0.12);
+    border-top: 5px solid var(--sage);
+  }
+  .price-box .old-price { font-size: 1.1rem; color: var(--text-light); text-decoration: line-through; }
+  .price-box .new-price { font-family: var(--serif); font-size: 3.2rem; color: var(--purple); margin: 6px 0 4px; }
+  .price-box .new-price small { font-size: 1.3rem; font-family: var(--sans); font-weight: 600; }
+  .price-box .price-meta { font-size: 0.85rem; color: var(--text-light); margin-bottom: 26px; }
+
+  /* ── FAQ ───────────────────────────────────────────────────────────── */
+  .faq-item {
+    border-bottom: 1px solid var(--sage-light);
+  }
+  .faq-q {
+    width: 100%; text-align: left; background: none; border: none;
+    padding: 22px 4px; font-family: var(--sans); font-weight: 600;
+    font-size: 1.02rem; color: var(--purple); cursor: pointer;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .faq-q .plus { font-size: 1.3rem; color: var(--sage); transition: transform 0.25s; flex-shrink: 0; }
+  .faq-item.open .faq-q .plus { transform: rotate(45deg); }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+  .faq-a p { padding: 0 4px 22px; font-size: 0.96rem; }
+
+  /* ── Fechamento ────────────────────────────────────────────────────── */
+  #fechamento { text-align: center; }
+  #fechamento .quote { font-family: var(--serif); font-style: italic; font-size: 1.5rem; color: var(--white); max-width: 640px; margin: 0 auto 26px; line-height: 1.5; }
+  #fechamento .final-line { font-size: 0.85rem; letter-spacing: 0.04em; color: rgba(255,255,255,0.65); margin-top: 24px; }
+
+  /* ── Recap list ────────────────────────────────────────────────────── */
+  .recap-box { background: var(--white); border-radius: 12px; padding: 40px; max-width: 640px; margin: 0 auto; box-shadow: 0 8px 30px rgba(62,43,112,0.08); }
+
+  /* ── Sticky mobile CTA ─────────────────────────────────────────────── */
+  #sticky-cta {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 90;
+    background: var(--white); border-top: 1px solid var(--sage-light);
+    padding: 12px 16px; display: none;
+    box-shadow: 0 -6px 24px rgba(62,43,112,0.12);
+  }
+  #sticky-cta .btn { width: 100%; padding: 14px; font-size: 0.88rem; }
+
+  footer { background: var(--purple-dark); color: rgba(255,255,255,0.55); text-align: center; padding: 34px 0; font-size: 0.8rem; }
+
+  /* ── Responsive ────────────────────────────────────────────────────── */
+  @media (max-width: 860px) {
+    .about-grid { grid-template-columns: 1fr; text-align: center; }
+    .about-photo { margin: 0 auto; }
+    .calma-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 760px) {
+    section { padding: 56px 0; }
+    .card-grid { grid-template-columns: 1fr; }
+    .compare-grid { grid-template-columns: 1fr; }
+    .transform-grid { grid-template-columns: 1fr; }
+    .day-card { grid-template-columns: 1fr; }
+    .day-card .day-badge { display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; }
+    #sticky-cta { display: block; }
+    body { padding-bottom: 74px; }
+  }
+  @media (max-width: 560px) {
+    .calma-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#hero" class="nav-brand">Melissa <span>Masoni</span></a>
+    <a href="#oferta" class="nav-cta">Garantir vaga — R$37</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<section id="hero">
+  <div class="container center">
+    <span class="eyebrow">Imersão da insegurança à clareza na pesquisa</span>
+    <h1>Aprenda em 2 dias como transformar sua insegurança em clareza para construir sua pesquisa acadêmica</h1>
+    <p class="lead">Participe de uma imersão online e ao vivo, nos dias 28 e 29 de julho, às 19h, e aprenda a transformar sua experiência, prática ou inquietação em um caminho de pesquisa com mais clareza sobre tema, recorte, problema, metodologia e escrita acadêmica.</p>
+
+    <div class="date-card">
+      <div class="date-line">28 e 29 de julho · 19h · Online e ao vivo</div>
+      <div class="price-line">Ingresso especial: <b>R$37</b></div>
+      <a href="#oferta" class="btn btn--primary btn--block">QUERO GARANTIR MINHA VAGA POR R$37</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ ABERTURA ═══════════════════════ -->
+<section id="abertura" class="bg-white">
+  <div class="container">
+    <p class="quote-line">Você tem uma ideia.</p>
+    <p>Talvez ela tenha nascido da sua prática profissional. Talvez venha de uma inquietação antiga. Talvez esteja ligada a algo que você viveu, observou, estudou ou deseja investigar com mais profundidade.</p>
+    <p>Mas, quando chega a hora de transformar isso em pesquisa acadêmica, tudo começa a parecer confuso.</p>
+    <p>O tema fica amplo demais. O recorte parece difícil de definir. O problema de pesquisa não sai do jeito certo. A metodologia parece um território técnico demais. E a escrita acadêmica começa a travar antes mesmo da primeira página.</p>
+    <p>Então, aos poucos, uma dificuldade que era técnica começa a virar uma dúvida sobre você:</p>
+    <div class="highlight">
+      "Será que eu sou capaz?"<br>
+      "Será que essa ideia tem valor acadêmico?"<br>
+      "Será que eu dou conta de fazer uma pesquisa?"
+    </div>
+    <p>Mas aqui está uma verdade importante:</p>
+    <p class="lead"><strong>Não é sobre falta de capacidade. É sobre falta de clareza no caminho.</strong></p>
+    <p>E é exatamente por isso que existe a <strong>Imersão Da Insegurança à Clareza na Pesquisa</strong>.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════ APRESENTAÇÃO ═══════════════════════ -->
+<section id="apresentacao" class="bg-sage-light">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" style="color: var(--purple-mid);">O evento</span>
+      <h2>Duas noites para organizar o caminho da sua pesquisa</h2>
+      <div class="divider"></div>
+    </div>
+    <p>A Imersão Da Insegurança à Clareza na Pesquisa é um evento online, ao vivo e prático para mulheres que querem começar ou reorganizar sua pesquisa acadêmica com mais direção, segurança e consciência do caminho.</p>
+    <p>Durante duas noites, você será conduzida por uma lógica clara para entender como uma ideia deixa de ser apenas uma intenção solta e começa a se sustentar como pesquisa.</p>
+    <p>Você não vai receber uma promessa vazia de sair com um projeto completo em dois dias.</p>
+    <p class="lead"><strong>Você vai aprender algo mais importante para esse momento:</strong> como enxergar a estrutura que sustenta uma pesquisa acadêmica.</p>
+    <p>Porque uma pesquisa não se sustenta apenas pelo valor da sua ideia. Ela se sustenta quando aquilo que você já traz encontra: <strong>tema, recorte, problema, objetivos, metodologia, viabilidade e escrita acadêmica.</strong></p>
+    <div class="btn-wrap">
+      <a href="#oferta" class="btn btn--purple">SIM, EU QUERO PARTICIPAR DA IMERSÃO</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ IDENTIFICAÇÃO ═══════════════════════ -->
+<section id="identificacao" class="bg-white">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Talvez você se reconheça aqui</span>
+      <h2>Talvez você esteja vivendo um destes momentos</h2>
+      <div class="divider"></div>
+    </div>
+    <ul class="check-list">
+      <li><span class="icon">✓</span> Você quer tentar o mestrado, mas não sabe por onde começar o projeto.</li>
+      <li><span class="icon">✓</span> Você já tem uma ideia de tema, mas sente que ela está ampla demais.</li>
+      <li><span class="icon">✓</span> Você começou uma pesquisa, mas sente que as partes não conversam entre si.</li>
+      <li><span class="icon">✓</span> Você sabe o que quer dizer, mas não consegue transformar isso em linguagem acadêmica.</li>
+      <li><span class="icon">✓</span> Você tem medo de escolher uma metodologia errada.</li>
+      <li><span class="icon">✓</span> Você sente vergonha por achar que já deveria saber fazer tudo isso.</li>
+      <li><span class="icon">✓</span> Você voltou a estudar depois de muitos anos e sente distância da escrita acadêmica.</li>
+      <li><span class="icon">✓</span> Você tem experiência, prática e repertório, mas não sabe como organizar isso em forma de pesquisa.</li>
+    </ul>
+    <p style="max-width:660px; margin: 34px auto 0; text-align:center;" class="lead">Se você se reconheceu em algum desses pontos, essa imersão foi criada para você.</p>
+    <p style="max-width:660px; margin: 10px auto 0; text-align:center;">Porque a sua dificuldade não significa que você não pertence à vida acadêmica. Significa que existe uma lógica de pesquisa que precisa ser compreendida, organizada e conduzida com clareza.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PROBLEMA CENTRAL ═══════════════════════ -->
+<section id="problema" class="bg-purple">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">O problema real</span>
+      <h2>O maior problema não é apenas não saber metodologia</h2>
+      <div class="divider"></div>
+    </div>
+    <p>O problema é o que essa confusão começa a fazer com a sua confiança.</p>
+    <p>Quando você não consegue delimitar um tema, formular um problema, pensar objetivos ou escolher um caminho metodológico, é comum começar a interpretar isso como incapacidade.</p>
+    <p class="lead" style="color:var(--white); font-style: italic; font-family: var(--serif); font-size: 1.3rem;">Mas dificuldade técnica não é incapacidade pessoal.</p>
+    <p>Você pode ser uma mulher inteligente, experiente, cheia de repertório e ainda assim precisar de orientação para transformar aquilo que viveu, observou ou construiu em linguagem acadêmica.</p>
+    <p>A academia tem códigos. A pesquisa tem lógica. A escrita tem estrutura. A metodologia tem função.</p>
+    <p><strong style="color: var(--sage);">E quando essas partes começam a fazer sentido, a insegurança perde força.</strong></p>
+  </div>
+</section>
+
+<!-- ═══════════════════════ VIRADA DE CONSCIÊNCIA ═══════════════════════ -->
+<section id="virada" class="bg-white">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">A virada</span>
+      <h2>Uma pesquisa acadêmica não começa com palavras difíceis</h2>
+      <div class="divider"></div>
+    </div>
+    <p class="lead center">Ela começa com uma pergunta:</p>
+    <p class="highlight center" style="border:none; padding:0; text-align:center;">"O que, dentro da minha experiência, prática ou inquietação, merece ser investigado com mais profundidade?"</p>
+    <p>A partir dessa pergunta, o caminho começa a se organizar.</p>
+    <p>Sua experiência pode virar ponto de partida. Sua inquietação pode virar pergunta. Seu tema pode ganhar recorte. Seu problema pode orientar os objetivos. Sua metodologia pode deixar de parecer uma escolha aleatória. E sua escrita pode começar a organizar o pensamento, não apenas preencher páginas.</p>
+    <p class="lead center" style="margin-top:20px;"><strong>Essa é a travessia da insegurança para a clareza.</strong></p>
+  </div>
+</section>
+
+<!-- ═══════════════════════ O QUE VOCÊ VAI APRENDER ═══════════════════════ -->
+<section id="aprendizado" class="bg-cream-dark">
+  <div class="container--wide">
+    <div class="section-head">
+      <span class="eyebrow">Conteúdo da imersão</span>
+      <h2>O que você vai aprender na imersão</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <span class="num">01</span>
+        <h3>Como uma experiência, prática ou inquietação pode conter uma pergunta de pesquisa</h3>
+        <p>Você vai começar a olhar para aquilo que já faz parte da sua trajetória com mais critério acadêmico, entendendo como identificar possíveis caminhos de investigação.</p>
+      </div>
+      <div class="card">
+        <span class="num">02</span>
+        <h3>Por que uma ideia importante ainda precisa de recorte</h3>
+        <p>Nem toda boa ideia já nasce pesquisável. Você vai entender por que o recorte é o que transforma um tema amplo em uma pesquisa possível.</p>
+      </div>
+      <div class="card">
+        <span class="num">03</span>
+        <h3>Como diferenciar tema, recorte e problema de pesquisa</h3>
+        <p>Você vai aprender a perceber a função de cada parte para não misturar tudo e acabar travando na construção do projeto.</p>
+      </div>
+      <div class="card">
+        <span class="num">04</span>
+        <h3>Como pensar objetivos com mais direção</h3>
+        <p>Os objetivos não existem isolados. Eles precisam conversar com o problema e com o caminho metodológico da pesquisa.</p>
+      </div>
+      <div class="card">
+        <span class="num">05</span>
+        <h3>Por que metodologia não é uma escolha aleatória</h3>
+        <p>A metodologia precisa responder ao problema formulado. Você vai entender por que escolher método não é decorar nomes difíceis, mas construir coerência.</p>
+      </div>
+      <div class="card">
+        <span class="num">06</span>
+        <h3>Como a escrita acadêmica organiza o pensamento</h3>
+        <p>A escrita não é apenas a etapa final. Ela ajuda a estruturar a forma como você pensa, argumenta e sustenta a pesquisa.</p>
+      </div>
+      <div class="card" style="grid-column: 1 / -1;">
+        <span class="num">07</span>
+        <h3>Como identificar pontos frágeis na sua pesquisa</h3>
+        <p>Você vai começar a perceber onde sua ideia ainda precisa de mais sustentação, coerência ou aprofundamento.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ MAPA CALMA ═══════════════════════ -->
+<section id="calma" class="bg-white">
+  <div class="container--wide">
+    <div class="section-head">
+      <span class="eyebrow">O mecanismo</span>
+      <h2>O Mapa CALMA de Sustentação da Pesquisa</h2>
+      <div class="divider"></div>
+      <p>Nesta imersão, você será apresentada a uma forma inicial de organizar os pilares que fazem uma pesquisa deixar de ser uma ideia solta e começar a ganhar sustentação acadêmica.</p>
+    </div>
+    <div class="calma-grid">
+      <div class="calma-item">
+        <span class="letter">C</span>
+        <h3>Clareza</h3>
+        <p>O que esta pesquisa quer investigar sem se perder em um tema amplo demais?</p>
+      </div>
+      <div class="calma-item">
+        <span class="letter">A</span>
+        <h3>Autoria</h3>
+        <p>Que experiência, prática, trajetória ou inquietação está dando origem a essa pergunta?</p>
+      </div>
+      <div class="calma-item">
+        <span class="letter">L</span>
+        <h3>Leitura</h3>
+        <p>Quais autores, debates ou campos precisam sustentar essa investigação?</p>
+      </div>
+      <div class="calma-item">
+        <span class="letter">M</span>
+        <h3>Método</h3>
+        <p>Que caminho pode responder ao problema formulado?</p>
+      </div>
+      <div class="calma-item">
+        <span class="letter">A</span>
+        <h3>Acolhimento</h3>
+        <p>Esse caminho cabe na sua vida real, no seu tempo disponível e nas suas condições concretas?</p>
+      </div>
+    </div>
+    <p class="center lead" style="margin-top: 36px;">Porque uma pesquisa não precisa nascer perfeita. <strong>Mas ela precisa começar a se organizar.</strong></p>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PROGRAMAÇÃO ═══════════════════════ -->
+<section id="programacao" class="bg-sage-light">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" style="color: var(--purple-mid);">Programação</span>
+      <h2>Duas noites, ao vivo, às 19h</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="timeline">
+      <div class="day-card">
+        <div class="day-badge">
+          <span class="d-num">28</span>
+          <span class="d-label">Julho</span>
+          <div class="d-time">19h</div>
+        </div>
+        <div>
+          <h3>Como transformar uma ideia, experiência ou inquietação em caminho de pesquisa</h3>
+          <p>Na primeira noite, você vai entender por que muitas pesquisas travam logo no início e como começar a organizar tema, recorte e problema com mais clareza.</p>
+          <p>Você vai aprender a identificar o que existe por trás da sua ideia e como começar a transformar isso em uma pergunta possível de investigação.</p>
+        </div>
+      </div>
+      <div class="day-card">
+        <div class="day-badge">
+          <span class="d-num">29</span>
+          <span class="d-label">Julho</span>
+          <div class="d-time">19h</div>
+        </div>
+        <div>
+          <h3>Como dar sustentação acadêmica para sua pesquisa</h3>
+          <p>Na segunda noite, você vai compreender como problema, objetivos, metodologia, viabilidade e escrita precisam conversar entre si para que a pesquisa tenha coerência.</p>
+          <p>Você também vai entender quais pontos costumam deixar uma pesquisa frágil e como começar a enxergar o próximo passo com mais segurança.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PARA QUEM É / NÃO É ═══════════════════════ -->
+<section id="paraquem" class="bg-white">
+  <div class="container--wide">
+    <div class="section-head">
+      <span class="eyebrow">Essa imersão é pra você?</span>
+      <h2>Para quem é e para quem não é</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="compare-grid">
+      <div class="compare-card yes">
+        <h3>Esta imersão é para você que:</h3>
+        <ul>
+          <li><span class="mark">✓</span> Quer tentar o mestrado, mas não sabe como transformar uma ideia em projeto de pesquisa.</li>
+          <li><span class="mark">✓</span> Está no mestrado e sente que sua pesquisa precisa de mais clareza.</li>
+          <li><span class="mark">✓</span> Tem uma ideia de tema, mas não sabe transformar isso em recorte, problema e metodologia.</li>
+          <li><span class="mark">✓</span> Tem experiência profissional, prática de campo, trajetória ou inquietação, mas não sabe organizar isso academicamente.</li>
+          <li><span class="mark">✓</span> Trava quando precisa escrever problema, objetivos, justificativa ou metodologia.</li>
+          <li><span class="mark">✓</span> Tem medo de escolher uma metodologia errada.</li>
+          <li><span class="mark">✓</span> Sente que sua pesquisa está confusa ou sem direção.</li>
+          <li><span class="mark">✓</span> Quer entender a lógica inicial da pesquisa antes de continuar tentando sozinha por tentativa e erro.</li>
+          <li><span class="mark">✓</span> Sente que precisa de um caminho mais acolhedor, sério e possível para avançar.</li>
+        </ul>
+      </div>
+      <div class="compare-card no">
+        <h3>Esta imersão não é para quem:</h3>
+        <ul>
+          <li><span class="mark">✕</span> Procura uma fórmula mágica para sair com um projeto completo em dois dias.</li>
+          <li><span class="mark">✕</span> Quer copiar um modelo pronto sem pensar na própria pesquisa.</li>
+          <li><span class="mark">✕</span> Busca promessa artificial de aprovação em mestrado, doutorado, edital ou banca.</li>
+          <li><span class="mark">✕</span> Deseja terceirizar a própria autoria.</li>
+          <li><span class="mark">✕</span> Quer apenas decorar nomes de metodologia sem compreender a lógica da pesquisa.</li>
+        </ul>
+        <p style="margin-top:18px; font-size:0.92rem;">Esta imersão é para mulheres que querem começar ou reorganizar sua pesquisa com seriedade, clareza e responsabilidade.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ TRANSFORMAÇÃO ═══════════════════════ -->
+<section id="transformacao" class="bg-cream-dark">
+  <div class="container--wide">
+    <div class="section-head">
+      <span class="eyebrow">Antes e depois</span>
+      <h2>O que muda depois da imersão</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="transform-grid">
+      <div class="transform-col before">
+        <h3>Antes da imersão, talvez você esteja pensando:</h3>
+        <ul>
+          <li>"Minha ideia é importante, mas não sei se vira pesquisa."</li>
+          <li>"Meu tema está amplo demais."</li>
+          <li>"Eu não sei formular um problema de pesquisa."</li>
+          <li>"Tenho medo de escolher uma metodologia errada."</li>
+          <li>"Eu sei o que quero dizer, mas não consigo escrever academicamente."</li>
+          <li>"Talvez eu já devesse saber isso."</li>
+          <li>"Talvez isso não seja para mim."</li>
+        </ul>
+      </div>
+      <div class="transform-col after">
+        <h3>Depois da imersão, você terá mais clareza para entender:</h3>
+        <ul>
+          <li>De onde sua pesquisa pode nascer.</li>
+          <li>Como uma experiência, prática ou inquietação pode ganhar forma acadêmica.</li>
+          <li>Por que o recorte é indispensável.</li>
+          <li>Como começar a formular uma pergunta de pesquisa.</li>
+          <li>Por que a metodologia precisa responder ao problema.</li>
+          <li>Como identificar se as partes da pesquisa conversam entre si.</li>
+          <li>Qual é o primeiro mapa possível para organizar seu caminho acadêmico.</li>
+          <li>E, principalmente, por que dificuldade técnica não deve ser confundida com incapacidade pessoal.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ SOBRE MELISSA ═══════════════════════ -->
+<section id="sobre" class="bg-white">
+  <div class="container--wide">
+    <div class="about-grid">
+      <div class="about-photo">MM</div>
+      <div>
+        <span class="eyebrow">Quem conduz a imersão</span>
+        <h2>Melissa Masoni</h2>
+        <div class="divider" style="margin-left:0;"></div>
+        <p>A Imersão Da Insegurança à Clareza na Pesquisa será conduzida por Melissa Masoni, criadora do Método CALMA.</p>
+        <p>Melissa ajuda mulheres que estão em transição, retomada ou reposicionamento acadêmico a organizarem suas ideias, experiências e inquietações em projetos e pesquisas com mais clareza, autoria e sustentação.</p>
+        <p>Seu trabalho parte de uma premissa simples, mas profundamente necessária:</p>
+        <p class="lead"><strong>Você não precisa apagar sua trajetória para caber na academia. Você precisa aprender a transformar o que já traz em linguagem acadêmica.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ O QUE VOCÊ RECEBE ═══════════════════════ -->
+<section id="recebe" class="bg-sage-light">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" style="color: var(--purple-mid);">Ao garantir sua vaga</span>
+      <h2>O que você recebe ao garantir sua vaga</h2>
+      <div class="divider"></div>
+    </div>
+    <ul class="check-list">
+      <li><span class="icon">✓</span> Duas noites de aulas online e ao vivo.</li>
+      <li><span class="icon">✓</span> Encontros nos dias 28 e 29 de julho, às 19h.</li>
+      <li><span class="icon">✓</span> Condução prática para organizar a lógica inicial da sua pesquisa.</li>
+      <li><span class="icon">✓</span> Apresentação do Mapa CALMA de Sustentação da Pesquisa.</li>
+      <li><span class="icon">✓</span> Clareza sobre tema, recorte, problema, objetivos, metodologia e escrita acadêmica.</li>
+      <li><span class="icon">✓</span> Direcionamento para identificar pontos frágeis da sua pesquisa.</li>
+      <li><span class="icon">✓</span> Uma experiência introdutória para começar ou reorganizar seu caminho acadêmico com mais segurança.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ═══════════════════════ OFERTA ═══════════════════════ -->
+<section id="oferta" class="bg-white">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">O convite</span>
+      <h2>Um primeiro passo com direção</h2>
+      <div class="divider"></div>
+    </div>
+    <p>Você poderia continuar tentando organizar sua pesquisa sozinha, abrindo vários arquivos, salvando modelos prontos, assistindo conteúdos soltos e se perguntando por que ainda não conseguiu avançar.</p>
+    <p class="lead"><strong>Ou pode dar um primeiro passo com direção.</strong></p>
+    <p>A Imersão Da Insegurança à Clareza na Pesquisa foi criada para ser acessível, prática e profunda o suficiente para ajudar você a olhar para sua pesquisa com mais critério, menos culpa e mais clareza.</p>
+    <p>O ingresso não é apenas o acesso a duas noites ao vivo.</p>
+    <p><strong>É um primeiro compromisso com a organização da sua pesquisa.</strong><br>É a decisão de parar de transformar uma dificuldade técnica em julgamento sobre a sua capacidade.</p>
+
+    <div class="price-box" style="margin-top: 40px;">
+      <span class="eyebrow">Inscrição especial</span>
+      <div class="old-price">De R$97</div>
+      <div class="new-price">por apenas <small>R$</small>37</div>
+      <div class="price-meta">Participação online e ao vivo · 28 e 29 de julho · às 19h</div>
+      <a href="https://pay.hotmart.com/SEU-LINK-AQUI" class="btn btn--primary btn--block">QUERO GARANTIR MINHA VAGA AGORA</a>
+      <span class="btn-sub">Pagamento único · Acesso imediato à confirmação</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ URGÊNCIA ═══════════════════════ -->
+<section id="urgencia" class="bg-purple">
+  <div class="container center">
+    <p class="lead" style="color:var(--white);">A sua pesquisa não precisa continuar parada porque você ainda não sabe por onde começar.</p>
+    <p>E você não precisa esperar se sentir 100% segura para dar o primeiro passo.</p>
+    <p class="lead" style="color:var(--white); font-family: var(--serif); font-style: italic; font-size: 1.3rem; margin: 20px 0;">A clareza não aparece antes do caminho.<br>Ela começa a surgir quando você entende como organizar o que já existe dentro de você.</p>
+    <p>Se você tem uma ideia, uma prática, uma experiência ou uma inquietação que merece ganhar forma acadêmica, essa imersão pode ser o ponto de partida.</p>
+    <p><strong style="color:var(--sage);">Garanta sua vaga por R$37 e participe ao vivo nos dias 28 e 29 de julho, às 19h.</strong></p>
+    <div class="btn-wrap">
+      <a href="#oferta" class="btn btn--primary">SIM, EU QUERO SAIR DA INSEGURANÇA E TER MAIS CLAREZA NA MINHA PESQUISA</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ RECAP ═══════════════════════ -->
+<section id="recap" class="bg-cream-dark">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" style="color: var(--purple-mid);">Recapitulando</span>
+      <h2>Ao garantir sua inscrição, você recebe</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="recap-box">
+      <ul class="check-list">
+        <li><span class="icon">✓</span> Acesso à Imersão Da Insegurança à Clareza na Pesquisa.</li>
+        <li><span class="icon">✓</span> Duas noites online e ao vivo.</li>
+        <li><span class="icon">✓</span> Aulas nos dias 28 e 29 de julho, às 19h.</li>
+        <li><span class="icon">✓</span> Um caminho inicial para organizar tema, recorte, problema, objetivos, metodologia e escrita.</li>
+        <li><span class="icon">✓</span> Apresentação do Mapa CALMA de Sustentação da Pesquisa.</li>
+        <li><span class="icon">✓</span> Clareza para entender os pontos frágeis da sua ideia, projeto ou pesquisa em andamento.</li>
+        <li><span class="icon">✓</span> Uma condução séria, acolhedora e prática para parar de confundir dificuldade técnica com incapacidade pessoal.</li>
+      </ul>
+      <p class="center" style="margin-top: 26px; font-size:0.9rem;">Tudo isso por apenas:</p>
+      <p class="center" style="font-family: var(--serif); font-size: 2.4rem; color: var(--purple); margin: 6px 0 22px;">R$37</p>
+      <a href="https://pay.hotmart.com/SEU-LINK-AQUI" class="btn btn--purple btn--block">GARANTIR MINHA INSCRIÇÃO POR R$37</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FAQ ═══════════════════════ -->
+<section id="faq" class="bg-white">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Dúvidas frequentes</span>
+      <h2>Perguntas frequentes</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-q">A imersão é online? <span class="plus">+</span></button>
+      <div class="faq-a"><p>Sim. A imersão será 100% online e ao vivo.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Quando vai acontecer? <span class="plus">+</span></button>
+      <div class="faq-a"><p>A imersão acontece nos dias 28 e 29 de julho, sempre às 19h.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Para quem é essa imersão? <span class="plus">+</span></button>
+      <div class="faq-a"><p>Para mulheres que querem começar ou reorganizar uma pesquisa acadêmica, especialmente quem deseja tentar o mestrado, está no mestrado, retomou os estudos ou sente dificuldade com tema, recorte, problema, metodologia e escrita acadêmica.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Vou sair com meu projeto pronto? <span class="plus">+</span></button>
+      <div class="faq-a"><p>Não. Essa não é a promessa da imersão. A proposta é que você compreenda a lógica inicial da pesquisa e comece a enxergar com mais clareza o caminho que precisa construir.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Preciso já estar no mestrado? <span class="plus">+</span></button>
+      <div class="faq-a"><p>Não. A imersão também é para quem quer tentar o mestrado e ainda está organizando suas primeiras ideias de projeto.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Também serve para quem já começou uma pesquisa? <span class="plus">+</span></button>
+      <div class="faq-a"><p>Sim. Se você já começou um projeto ou pesquisa, mas sente que perdeu clareza, que as partes não conversam ou que a metodologia está confusa, a imersão pode ajudar você a reorganizar o caminho.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Quanto custa? <span class="plus">+</span></button>
+      <div class="faq-a"><p>O ingresso especial para participar da imersão é de R$37.</p></div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">A imersão é gravada? <span class="plus">+</span></button>
+      <div class="faq-a"><p>As aulas acontecem ao vivo, nos dias 28 e 29 de julho, às 19h, e não haverá gravação disponibilizada depois. A recomendação é participar ao vivo para acompanhar a construção do raciocínio em tempo real.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ FECHAMENTO ═══════════════════════ -->
+<section id="fechamento" class="bg-purple">
+  <div class="container">
+    <p class="quote">Você não chegou até aqui por acaso.</p>
+    <p style="color: rgba(255,255,255,0.82);">Talvez exista uma pesquisa possível dentro da sua experiência. Talvez a sua prática tenha mais valor acadêmico do que você imagina. Talvez a sua inquietação só precise de recorte, problema, método e escrita para começar a se sustentar.</p>
+    <p style="color: rgba(255,255,255,0.82); margin-top: 16px;">A questão não é se você é capaz.<br><strong style="color:var(--sage);">A questão é aprender a organizar o caminho.</strong></p>
+    <p style="color: rgba(255,255,255,0.82); margin-top: 16px;">Participe da Imersão Da Insegurança à Clareza na Pesquisa e dê o primeiro passo para transformar o que você já traz em linguagem acadêmica.</p>
+    <div class="btn-wrap">
+      <a href="https://pay.hotmart.com/SEU-LINK-AQUI" class="btn btn--primary">QUERO PARTICIPAR DA IMERSÃO</a>
+    </div>
+    <p class="final-line">28 e 29 de julho · 19h · Online e ao vivo · R$37</p>
+  </div>
+</section>
+
+<footer>
+  <p>Melissa Masoni · Imersão Da Insegurança à Clareza na Pesquisa</p>
+</footer>
+
+<div id="sticky-cta">
+  <a href="#oferta" class="btn btn--primary">QUERO GARANTIR MINHA VAGA — R$37</a>
+</div>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach(function(item) {
+    var q = item.querySelector('.faq-q');
+    var a = item.querySelector('.faq-a');
+    q.addEventListener('click', function() {
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(other) {
+        other.classList.remove('open');
+        other.querySelector('.faq-a').style.maxHeight = null;
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
