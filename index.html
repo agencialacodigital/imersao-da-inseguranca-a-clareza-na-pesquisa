@@ -122,8 +122,11 @@
   .nav-brand {
     font-family: var(--serif); font-size: 1.05rem; font-weight: 700;
     color: var(--white); text-decoration: none; letter-spacing: 0.01em;
+    display: flex; align-items: center; gap: 12px;
   }
   .nav-brand span { color: var(--sage); }
+  .logo-mark { width: 28px; height: auto; flex-shrink: 0; }
+  .logo-mark path { stroke: var(--sage); }
   .nav-cta {
     font-family: var(--sans); font-size: 0.78rem; font-weight: 600;
     color: var(--white); background: var(--sage);
@@ -266,11 +269,12 @@
   .about-grid { display: grid; grid-template-columns: 220px 1fr; gap: 44px; align-items: center; }
   .about-photo {
     width: 220px; height: 220px; border-radius: 50%;
-    background: linear-gradient(160deg, var(--sage) 0%, var(--purple-mid) 100%);
+    background: var(--purple-light);
     display: flex; align-items: center; justify-content: center;
-    font-family: var(--serif); font-size: 3.2rem; color: var(--white);
-    box-shadow: 0 10px 34px rgba(62,43,112,0.25);
+    box-shadow: 0 10px 34px rgba(62,43,112,0.15);
   }
+  .about-photo .logo-mark { width: 92px; }
+  .about-photo .logo-mark path { stroke: var(--purple); }
 
   /* ── Oferta / pricing ──────────────────────────────────────────────── */
   .price-box {
@@ -343,7 +347,14 @@
 
 <nav>
   <div class="nav-inner">
-    <a href="#hero" class="nav-brand">Melissa <span>Masoni</span></a>
+    <a href="#hero" class="nav-brand">
+      <svg class="logo-mark" viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 98 L12 30 C12 8 32 6 42 24 L50 58" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M88 98 L88 30 C88 8 68 6 58 24 L50 58" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M50 46 L50 92" stroke-width="7" stroke-linecap="round"/>
+      </svg>
+      Melissa <span>Masoni</span>
+    </a>
     <a href="#oferta" class="nav-cta">Garantir vaga — R$37</a>
   </div>
 </nav>
@@ -662,7 +673,13 @@
 <section id="sobre" class="bg-white">
   <div class="container--wide">
     <div class="about-grid">
-      <div class="about-photo">MM</div>
+      <div class="about-photo">
+        <svg class="logo-mark" viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 98 L12 30 C12 8 32 6 42 24 L50 58" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M88 98 L88 30 C88 8 68 6 58 24 L50 58" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M50 46 L50 92" stroke-width="7" stroke-linecap="round"/>
+        </svg>
+      </div>
       <div>
         <span class="eyebrow">Quem conduz a imersão</span>
         <h2>Melissa Masoni</h2>
@@ -819,6 +836,11 @@
 </section>
 
 <footer>
+  <svg class="logo-mark" style="width:22px; margin: 0 auto 10px; opacity:0.85;" viewBox="0 0 100 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 98 L12 30 C12 8 32 6 42 24 L50 58" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M88 98 L88 30 C88 8 68 6 58 24 L50 58" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M50 46 L50 92" stroke-width="7" stroke-linecap="round"/>
+  </svg>
   <p>Melissa Masoni · Imersão Da Insegurança à Clareza na Pesquisa</p>
 </footer>
 
