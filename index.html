@@ -41,10 +41,7 @@ fbq('track', 'PageView');
     --text-light:   #888888;
     --serif:        'Playfair Display', Georgia, serif;
     --sans:         'Inter', system-ui, sans-serif;
-    --urgency-red:      #7a1414;
-    --urgency-red-dark: #4a0c0c;
-    --urgency-red-box:  rgba(0,0,0,0.28);
-    --bar-h: 46px;
+    --bar-h: 0px;
   }
   html { scroll-behavior: smooth; }
   body {
@@ -103,11 +100,27 @@ fbq('track', 'PageView');
     transition: transform 0.2s, box-shadow 0.2s;
   }
   .btn--primary {
-    background: var(--sage);
+    background: linear-gradient(135deg, var(--sage) 0%, #a9bfab 50%, var(--sage) 100%);
+    background-size: 200% 200%;
     color: var(--white);
-    box-shadow: 0 4px 20px rgba(147,166,149,0.4);
+    box-shadow: 0 0 0 0 rgba(147,166,149,0.6), 0 4px 20px rgba(147,166,149,0.5);
+    animation: btnGlow 2.2s ease-in-out infinite, btnShine 3.4s ease-in-out infinite;
   }
-  .btn--primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(147,166,149,0.5); }
+  .btn--primary:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 0 0 8px rgba(147,166,149,0), 0 10px 32px rgba(147,166,149,0.65);
+    animation-play-state: paused;
+  }
+  @keyframes btnGlow {
+    0%   { box-shadow: 0 0 0 0 rgba(147,166,149,0.55), 0 4px 20px rgba(147,166,149,0.45); }
+    50%  { box-shadow: 0 0 0 10px rgba(147,166,149,0), 0 4px 26px rgba(147,166,149,0.7); }
+    100% { box-shadow: 0 0 0 0 rgba(147,166,149,0.55), 0 4px 20px rgba(147,166,149,0.45); }
+  }
+  @keyframes btnShine {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
   .btn--purple {
     background: var(--purple);
     color: var(--white);
@@ -127,36 +140,7 @@ fbq('track', 'PageView');
     border-radius: 2px;
   }
 
-  /* ── URGENCY BAR ───────────────────────────────────────────────────── */
-  .urgency-bar {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 110;
-    background: linear-gradient(90deg, var(--urgency-red-dark) 0%, var(--urgency-red) 50%, var(--urgency-red-dark) 100%);
-    border-bottom: 2px solid var(--urgency-red-dark);
-    padding: 9px 16px;
-  }
-  .urgency-inner {
-    max-width: 1060px; margin: 0 auto;
-    display: flex; align-items: center; justify-content: center;
-    gap: 22px; flex-wrap: wrap;
-  }
-  .urgency-text {
-    font-family: var(--sans); font-weight: 700; font-size: 0.82rem;
-    letter-spacing: 0.02em; text-transform: uppercase; color: var(--white);
-    text-align: center;
-  }
-  .urgency-timer { display: flex; gap: 8px; flex-shrink: 0; }
-  .timer-box {
-    background: var(--urgency-red-box); border: 1px solid rgba(255,255,255,0.18);
-    border-radius: 4px; padding: 3px 11px; text-align: center; min-width: 42px;
-  }
-  .timer-box .t-num {
-    display: block; font-family: var(--sans); font-weight: 700;
-    font-size: 1.05rem; color: var(--white); line-height: 1.2;
-  }
-  .timer-box .t-label {
-    display: block; font-size: 0.52rem; letter-spacing: 0.06em;
-    color: rgba(255,255,255,0.7); margin-top: 1px;
-  }
+
 
   /* ── NAV ───────────────────────────────────────────────────────────── */
   nav {
@@ -436,10 +420,6 @@ fbq('track', 'PageView');
     .day-card .day-badge { display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; }
     #sticky-cta { display: block; }
     body { padding-bottom: 74px; }
-    .urgency-text { font-size: 0.68rem; width: 100%; }
-    .urgency-bar { padding: 8px 12px; }
-    .timer-box { padding: 3px 8px; min-width: 34px; }
-    .timer-box .t-num { font-size: 0.92rem; }
   }
   @media (max-width: 560px) {
     .calma-grid { grid-template-columns: 1fr 1fr; }
@@ -448,23 +428,12 @@ fbq('track', 'PageView');
 </head>
 <body>
 
-<div class="urgency-bar" id="urgency-bar">
-  <div class="urgency-inner">
-    <span class="urgency-text">SOMENTE HOJE, <span id="urgency-day">—</span>, <span id="urgency-date">—</span> — INSCRIÇÕES ABERTAS · 100% AO VIVO E GRATUITO</span>
-    <div class="urgency-timer">
-      <div class="timer-box"><span class="t-num" id="t-hours">00</span><span class="t-label">HORAS</span></div>
-      <div class="timer-box"><span class="t-num" id="t-mins">00</span><span class="t-label">MINS</span></div>
-      <div class="timer-box"><span class="t-num" id="t-secs">00</span><span class="t-label">SEGS</span></div>
-    </div>
-  </div>
-</div>
-
 <nav>
   <div class="nav-inner">
     <a href="#hero" class="nav-brand">
       <img class="logo-mark" src="logo-melissa-masoni.png" alt="Melissa Masoni — Mentora Acadêmica">
     </a>
-    <a href="#" class="nav-cta js-buy-btn">Garantir vaga — Gratuito</a>
+    <a href="#" class="nav-cta js-buy-btn">GARANTIR VAGA</a>
   </div>
 </nav>
 
@@ -473,12 +442,13 @@ fbq('track', 'PageView');
   <div class="container center">
     <span class="eyebrow">Imersão da insegurança à clareza na pesquisa</span>
     <h1>Transforme uma ideia ainda solta em um caminho de pesquisa possível, coerente e autoral.</h1>
-    <p class="lead">Em duas noites online e ao vivo, você compreenderá como experiência, repertório ou inquietação podem ser organizados academicamente por meio de tema, recorte, problema, objetivos e método — sem fórmulas prontas e sem abrir mão da sua autoria.</p>
+    <p class="lead">Em dois encontros online e ao vivo, você compreenderá como articular tema, recorte, problema, objetivos e metodologia para construir uma pesquisa com direção, coerência e autoria.</p>
+    <p class="lead">Uma experiência pensada para mulheres que desejam ingressar ou avançar no mestrado e no doutorado, conciliando as exigências acadêmicas com as condições reais da própria vida.</p>
 
     <div class="date-card">
       <div class="date-line">26 e 27 de agosto · 19h · Online e ao vivo</div>
       <div class="price-line"><b>100% Ao vivo e Gratuito</b></div>
-      <button type="button" class="btn btn--primary btn--block js-buy-btn">QUERO CONSTRUIR MEU MAPA INICIAL DE PESQUISA</button>
+      <button type="button" class="btn btn--primary btn--block js-buy-btn">QUERO FAZER MINHA INSCRIÇÃO</button>
     </div>
   </div>
 </section>
@@ -490,7 +460,7 @@ fbq('track', 'PageView');
     <p>Muitas mulheres chegam à pesquisa com experiência, repertório e questões relevantes, mas encontram dificuldade para transformar o que sabem em tema delimitado, problema de pesquisa, objetivos e escolhas metodológicas coerentes.</p>
     <p>Isso não significa falta de capacidade. Significa que existe uma lógica acadêmica que precisa ser compreendida — e que raramente é ensinada de maneira clara, articulada e conectada à realidade de quem pesquisa.</p>
     <div class="divider" style="margin: 32px auto;"></div>
-    <p>A <strong>Imersão Da Insegurança à Clareza na Pesquisa</strong> foi criada para mulheres que possuem uma ideia, experiência ou inquietação, mas ainda não conseguem enxergar como transformá-la em uma pesquisa possível.</p>
+    <p>A <strong>Imersão Da Insegurança à Clareza na Pesquisa</strong> foi criada para mulheres que possuem uma ideia, experiência ou inquietação, mas ainda não conseguiram transformá-la em uma pesquisa acadêmica ou em um projeto de pesquisa.</p>
     <p>Em duas noites online e ao vivo, você compreenderá como tema, recorte, problema, objetivos, leitura e método se relacionam. Com o Mapa CALMA, começará a identificar o que já está claro, o que ainda precisa ser construído e qual deve ser o seu próximo passo.</p>
   </div>
 </section>
@@ -503,7 +473,7 @@ fbq('track', 'PageView');
       <h2>O resultado da imersão</h2>
       <div class="divider"></div>
     </div>
-    <p class="lead center">Ao final da imersão, você terá iniciado seu <strong>Mapa CALMA de Pesquisa</strong>: um registro organizado do que já possui, do que ainda precisa delimitar e das decisões necessárias para continuar construindo sua pesquisa.</p>
+    <p class="lead center">Ao final da imersão, você terá iniciado seu <strong>Mapa CALMA de Pesquisa</strong>: um registro organizado do que já possui, do que ainda precisa delimitar e das decisões necessárias para continuar construindo sua pesquisa ou projeto.</p>
     <ul class="check-list" style="margin-top: 36px;">
       <li><span class="icon">✓</span> Vai identificar, dentro da sua experiência ou inquietação, uma possível pergunta de pesquisa.</li>
       <li><span class="icon">✓</span> Vai diferenciar tema, recorte e problema — e a função de cada um.</li>
@@ -546,7 +516,7 @@ fbq('track', 'PageView');
       <div class="calma-item">
         <span class="letter">A</span>
         <h3>Acolhimento</h3>
-        <p>A forma como esse percurso é conduzido — com escuta responsável, orientação clara e rigor, sem transformar dúvidas em incapacidade.</p>
+        <p>Compreender os atravessamentos e as condições reais em que cada mulher constrói sua pesquisa, oferecendo direção, apoio e segurança para mostrar que é possível avançar.</p>
       </div>
     </div>
   </div>
@@ -596,15 +566,28 @@ fbq('track', 'PageView');
       <h2>Para quem é a imersão</h2>
       <div class="divider"></div>
     </div>
-    <p class="lead">Esta imersão foi criada principalmente para mulheres que sabem que possuem uma questão importante, mas ainda não conseguiram transformá-la em um caminho de pesquisa claro e possível.</p>
-    <p>Ela também pode ajudar quem já iniciou um projeto ou uma pesquisa, mas percebeu que tema, problema, objetivos e metodologia não estão conversando entre si.</p>
-    <div class="divider" style="margin: 32px auto;"></div>
-    <p class="center" style="font-weight: 600; color: var(--purple);">Não é para quem:</p>
-    <ul class="check-list cross-list" style="max-width: 560px;">
-      <li><span class="icon">✕</span> Procura um projeto pronto.</li>
-      <li><span class="icon">✕</span> Deseja terceirizar a autoria.</li>
-      <li><span class="icon">✕</span> Busca uma fórmula de aprovação.</li>
+    <p class="lead">Esta imersão foi criada para mulheres que estão construindo uma pesquisa para ingressar ou avançar no mestrado ou no doutorado.</p>
+    <p class="center" style="font-weight: 600; color: var(--purple);">Ela é para você que:</p>
+    <ul class="check-list" style="max-width: 640px;">
+      <li><span class="icon">✓</span> Busca avançar academicamente enquanto concilia estudos, trabalho, família, cuidado e outras responsabilidades que fazem parte de sua vida.</li>
+      <li><span class="icon">✓</span> Está se preparando para um processo seletivo e precisa transformar uma ideia, experiência ou inquietação em um projeto de pesquisa.</li>
+      <li><span class="icon">✓</span> Já está no mestrado ou no doutorado e precisa encontrar mais clareza para escrever, estruturar ou conduzir sua pesquisa.</li>
+      <li><span class="icon">✓</span> Deseja compreender como tema, recorte, problema, objetivos e metodologia se articulam.</li>
+      <li><span class="icon">✓</span> Precisa tomar decisões metodológicas com mais segurança e coerência.</li>
+      <li><span class="icon">✓</span> Deseja construir uma pesquisa consistente, possível e alinhada à própria autoria.</li>
     </ul>
+    <p>Esta imersão também pode fazer sentido para você que está concluindo a graduação e já começou a se preparar para uma seleção de mestrado ou doutorado.</p>
+    <div class="divider" style="margin: 32px auto;"></div>
+    <p class="center" style="font-weight: 600; color: var(--purple);">Para quem esta imersão não foi pensada</p>
+    <p>Esta imersão tem um foco específico: mulheres que desejam aprender a construir e a conduzir seus projetos e pesquisas de mestrado e doutorado.</p>
+    <p>Por isso, ela não foi pensada para quem busca exclusivamente:</p>
+    <ul class="check-list cross-list" style="max-width: 640px;">
+      <li><span class="icon">✕</span> Apoio para atividades, provas ou trabalhos de disciplinas da graduação.</li>
+      <li><span class="icon">✕</span> Explicação pontual de um texto, uma lei, um artigo ou outro conteúdo acadêmico.</li>
+      <li><span class="icon">✕</span> Acompanhamento voltado apenas à leitura, à interpretação de textos ou à aprendizagem da escrita acadêmica.</li>
+      <li><span class="icon">✕</span> Orientação para demandas que não estejam relacionadas à elaboração de um projeto, uma dissertação ou uma tese.</li>
+    </ul>
+    <p class="lead" style="margin-top: 24px;">Se a sua dificuldade está ligada à construção de uma pesquisa para ingressar ou avançar no mestrado ou no doutorado, esta imersão foi pensada para o momento que você está vivendo.</p>
   </div>
 </section>
 
@@ -661,7 +644,7 @@ fbq('track', 'PageView');
       <span class="eyebrow">100% Ao vivo e Gratuito</span>
       <div class="new-price" style="font-size: 2.2rem;">Inscrição gratuita</div>
       <div class="price-meta">Participação online e ao vivo · 26 e 27 de agosto · às 19h</div>
-      <button type="button" class="btn btn--primary btn--block js-buy-btn">QUERO CONSTRUIR MEU MAPA INICIAL DE PESQUISA</button>
+      <button type="button" class="btn btn--primary btn--block js-buy-btn">QUERO FAZER MINHA INSCRIÇÃO</button>
       <span class="btn-sub">Vagas limitadas · Acesso via grupo no WhatsApp</span>
     </div>
   </div>
@@ -698,7 +681,7 @@ fbq('track', 'PageView');
     <p style="color: rgba(255,255,255,0.82);">Sua prática, experiência ou inquietação pode conter uma questão academicamente relevante, desde que seja delimitada, problematizada e sustentada por escolhas coerentes.</p>
     <p style="color: rgba(255,255,255,0.82); margin-top: 16px;">A questão não é se você é capaz.<br><strong style="color:var(--sage);">A questão é aprender a organizar o caminho.</strong></p>
     <div class="btn-wrap">
-      <button type="button" class="btn btn--primary js-buy-btn">QUERO CONSTRUIR MEU MAPA INICIAL DE PESQUISA</button>
+      <button type="button" class="btn btn--primary js-buy-btn">QUERO FAZER MINHA INSCRIÇÃO</button>
     </div>
     <p class="final-line">26 e 27 de agosto · 19h · Online e ao vivo · 100% Gratuito</p>
   </div>
@@ -878,49 +861,6 @@ fbq('track', 'PageView');
       window.location.href = WHATSAPP_GROUP_URL;
     }, 1400);
   });
-</script>
-
-<script>
-  var DAY_NAMES = ['domingo','segunda','terça','quarta','quinta','sexta','sábado'];
-
-  function pad2(n) { return n < 10 ? '0' + n : '' + n; }
-
-  function updateUrgencyBar() {
-    var now = new Date();
-
-    var dayEl = document.getElementById('urgency-day');
-    var dateEl = document.getElementById('urgency-date');
-    if (dayEl) dayEl.textContent = DAY_NAMES[now.getDay()];
-    if (dateEl) dateEl.textContent = pad2(now.getDate()) + '/' + pad2(now.getMonth() + 1);
-
-    var midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0, 0);
-    var diff = midnight - now;
-    if (diff < 0) diff = 0;
-
-    var hours = Math.floor(diff / 3600000);
-    var mins = Math.floor((diff % 3600000) / 60000);
-    var secs = Math.floor((diff % 60000) / 1000);
-
-    var hEl = document.getElementById('t-hours');
-    var mEl = document.getElementById('t-mins');
-    var sEl = document.getElementById('t-secs');
-    if (hEl) hEl.textContent = pad2(hours);
-    if (mEl) mEl.textContent = pad2(mins);
-    if (sEl) sEl.textContent = pad2(secs);
-  }
-
-  updateUrgencyBar();
-  setInterval(updateUrgencyBar, 1000);
-
-  function syncBarHeight() {
-    var bar = document.getElementById('urgency-bar');
-    var h = bar ? bar.offsetHeight : 0;
-    document.documentElement.style.setProperty('--bar-h', h + 'px');
-  }
-
-  syncBarHeight();
-  window.addEventListener('resize', syncBarHeight);
-  window.addEventListener('load', syncBarHeight);
 </script>
 
 </body>
